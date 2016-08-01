@@ -1,4 +1,4 @@
-package cc.completionstage.composable;
+package com.completionstage.composable;
 
 import static com.completionstage.utils.Commons.ensureIsNotNull;
 import static com.completionstage.utils.Commons.ensureIsNull;
@@ -84,7 +84,7 @@ public class CompletionComputations3Test {
 				log("logging something from success-callback-thread...on successfull completion...result:: " + upperCasedResult);
 		});
 		
-		sleepFor(1, "because JVM closes prematurelly, without giving a chance to complete the spawned future-tasks");
+		sleepFor(1);
 	}
 	
 	static final class DomainException extends RuntimeException {

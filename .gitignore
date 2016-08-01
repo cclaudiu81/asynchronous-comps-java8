@@ -4,3 +4,4 @@ target/
 .prefs
 .idea
 bin/
+*.iml

@@ -1,4 +1,4 @@
-package cc.completionstage.composable;
+package com.completionstage.composable;
 
 import static com.completionstage.utils.Commons.log;
 import static com.completionstage.utils.Commons.sleepFor;

@@ -9,8 +9,7 @@ import java.util.concurrent.FutureTask;
 import java.util.function.Function;
 
 import com.completionstage.utils.TypeSignature;
-
-import cc.jcip.commons.ThreadSafe;
+import net.jcip.annotations.ThreadSafe;
 
 /**
  * 

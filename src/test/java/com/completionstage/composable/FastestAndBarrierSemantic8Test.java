@@ -1,4 +1,4 @@
-package cc.completionstage.composable;
+package com.completionstage.composable;
 import static com.completionstage.utils.Commons.*;
 import static java.util.Arrays.asList;
 

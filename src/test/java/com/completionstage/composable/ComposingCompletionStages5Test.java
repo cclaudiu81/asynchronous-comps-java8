@@ -1,4 +1,4 @@
-package cc.completionstage.composable;
+package com.completionstage.composable;
 
 import static com.completionstage.utils.Commons.getOrFail;
 import static com.completionstage.utils.Commons.log;
@@ -42,7 +42,7 @@ public class ComposingCompletionStages5Test {
 		CompletableFuture<List<String>> computed = upperCasedParts.thenCompose(this::filterHigherThan3Chars);
 		CompletableFuture.runAsync(() -> log(getOrFail(computed)));
 
-		sleepFor(1, "Giving a chance for other computations complete before exiting the JVM");
+		sleepFor(1);
 	}
 	
 	// CF<CF<T>> ?
@@ -84,7 +84,7 @@ public class ComposingCompletionStages5Test {
 			.thenCompose(extractFunctionalLanguages)
 			.thenCompose(processLanguages);
 		
-		sleepFor(1, "Being async computations happen in other threads therefore main thread is not blocked...");
+		sleepFor(1);
 	}
 	
 	@Test
@@ -112,7 +112,7 @@ public class ComposingCompletionStages5Test {
 			.thenCompose(extractFunctionalLanguages)
 			.thenCompose(processLanguages);
 		
-		sleepFor(1, "Being async computations happen in other threads therefore main thread is not blocked...");
+		sleepFor(1);
 	}
 	
 	

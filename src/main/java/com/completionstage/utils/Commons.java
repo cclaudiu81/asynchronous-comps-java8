@@ -1,11 +1,6 @@
 package com.completionstage.utils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -17,13 +12,13 @@ public final class Commons {
 
 	private Commons() { }
 	
-	public static final <T> void ensureIsNull(T that) {
+	public static <T> void ensureIsNull(T that) {
 		if(that != null) {
 			throw new IllegalStateException("Object should be null! object:: " + that);
 		}
 	}
 	
-	public static final <T> void ensureIsNotNull(T that) {
+	public static <T> void ensureIsNotNull(T that) {
 		if(that == null) {
 			throw new IllegalStateException("Object should not be null!");
 		}
@@ -33,7 +28,7 @@ public final class Commons {
 		return new Date().getTime() / 1000;
 	}
 	
-	public static final void sleepFor(int sec, String... message) {
+	public static final void sleepFor(int sec) {
 		try {
 			Thread.sleep(sec * 1000);
 		} catch (InterruptedException e) {

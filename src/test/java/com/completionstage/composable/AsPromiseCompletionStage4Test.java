@@ -1,4 +1,4 @@
-package cc.completionstage.composable;
+package com.completionstage.composable;
 
 import static com.completionstage.utils.Commons.currentThreadName;
 import static com.completionstage.utils.Commons.failWith;
@@ -55,7 +55,7 @@ public class AsPromiseCompletionStage4Test {
 		
 		promised.complete(30L);
 		
-		sleepFor(2, "Giving a chance for other threads to complete...");
+		sleepFor(2);
 	}
 
 	
@@ -106,7 +106,7 @@ public class AsPromiseCompletionStage4Test {
 			promised.complete(SomeService.getAllPrices());
 		}
 
-		sleepFor(1, "Giving a chance for other computations to complete before exiting JVM");
+		sleepFor(1);
 	}
 
 	private boolean lastDayBeforeSalary() {
