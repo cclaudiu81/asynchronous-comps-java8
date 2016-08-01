@@ -1,4 +1,4 @@
-package cc.completionstage.composable;
+package com.completionstage.composable;
 
 import static com.completionstage.utils.Commons.getSecsSinceEpoch;
 import static com.completionstage.utils.Commons.log;
@@ -64,7 +64,7 @@ public class TransformingCompletableFuture2Test {
 	@Test
 	public void supplied_completable_future_will_not_wait_for_task_but_return_a_fallback_result() {
 		CompletableFuture<String> aTask = CompletableFuture.supplyAsync(() -> {
-			sleepFor(1, "client attempts to dereference faster than the computation completed");
+			sleepFor(1);
 			return "some-string";
 		});
 		

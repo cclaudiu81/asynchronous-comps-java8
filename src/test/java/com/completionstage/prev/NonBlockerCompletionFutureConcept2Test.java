@@ -1,4 +1,4 @@
-package cc.completionstage.prev;
+package com.completionstage.prev;
 
 import static com.completionstage.utils.Commons.log;
 import static com.completionstage.utils.Commons.sleepFor;
@@ -40,7 +40,7 @@ public class NonBlockerCompletionFutureConcept2Test {
 
 		final SimplifiedCompletionFuture<String> accessedData = SimplifiedCompletionFuture.from(
 			() -> {
-				sleepFor(1, "simulating long string-access computation");
+				sleepFor(1);
 				log("debugging:: executing supplier - string-access, from thread:: " + currentThreadName());
 				return "java-or-clojure";
 		});
@@ -57,7 +57,7 @@ public class NonBlockerCompletionFutureConcept2Test {
 		});
 		
 		log("debugging:: resuming main execution thread:: " + currentThreadName());
-		sleepFor(2, "Giving a chance for other threads to complete before JVM exits");
+		sleepFor(2);
 	}
 	
 	private static final String currentThreadName() {

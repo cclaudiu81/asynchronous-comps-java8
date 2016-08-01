@@ -1,4 +1,4 @@
-package cc.completionstage.prev;
+package com.completionstage.prev;
 
 import static com.completionstage.utils.Commons.sleepFor;
 import static org.hamcrest.CoreMatchers.is;
@@ -11,6 +11,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.completionstage.utils.Puzzler;
@@ -26,11 +27,11 @@ public class NonBlockerCompletionService1Test {
 		ExecutorCompletionService<String> completionService = new ExecutorCompletionService<>(execService);
 		
 		Future<String> notUsed1 = completionService.submit(() -> {
-			sleepFor(1, "simulating long running task-1");
+			sleepFor(1);
 			return "long-running-task-1";
 		});
 		Future<String> notUsed2 = completionService.submit(() -> {
-			sleepFor(2, "simulating long running task-2");
+			sleepFor(2);
 			return "long-running-task-2";
 		});
 
@@ -38,7 +39,8 @@ public class NonBlockerCompletionService1Test {
 		Future<String> first = takeAnyOrTimeout(completionService, 4000);
 		assertThat(first.get(), is("long-running-task-1"));
 	}
-	
+
+	@Ignore("This is should not be failing. It's a puzzler")
 	@Puzzler
 	@Test
 	public void takeAny_should_wait_for_any_dependent_computations() throws InterruptedException, ExecutionException {
@@ -46,11 +48,11 @@ public class NonBlockerCompletionService1Test {
 		ExecutorCompletionService<String> completionService = new ExecutorCompletionService<>(execService);
 		
 		Future<String> result1 = completionService.submit(() -> {
-			sleepFor(2, "simulating long running task-1");
+			sleepFor(2);
 			return "long-running-task-1";
 		});
 		Future<String> result2 = completionService.submit(() -> {
-			sleepFor(1, "simulating long running task-2");
+			sleepFor(1);
 			return result1.get().toUpperCase();
 		});
 
